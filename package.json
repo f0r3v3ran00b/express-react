@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "heroku-postbuild": "cd client && npm install && npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker-build": "docker build -t f0r3v3ran00b/express-react ."
   },
   "keywords": [],
   "author": "",
@@ -22,11 +23,11 @@
     "pug": "2.0.0-beta11",
     "body-parser": "1.18.3",
     "netlify-lambda": "1.0.2",
-    "serverless-http": "1.8.0"
+    "serverless-http": "1.8.0",
+    "nodemon": "1.18.5"
   },
   "devDependencies": {
     "mocha": "5.2.0",
-    "nodemon": "1.18.5",
     "supertest": "3.3.0"
   },
   "engines": {
