@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import TFNUtils from './utils/tfn-utils.js'
+import TFNUtils from './utils/tfn-utils'
 
 class App extends Component {
     // Initialize state
@@ -13,7 +13,9 @@ class App extends Component {
     componentDidMount() {
         this.getPasswords();
         console.log(`From react, calling tfn validTFN: ${TFNUtils.validTFN()}`);
-        this.setState(TFNUtils.validTFN())
+        this.setState({
+            message: TFNUtils.validTFN()
+        })
     }
 
     getPasswords = () => {
@@ -32,7 +34,7 @@ class App extends Component {
                 {passwords.length ? (
                     <div>
                         <h1>5 Passwords.</h1>
-                        <h2>this.state.message</h2>
+                        <h2>{this.state.message}</h2>
                         <ul className="passwords">
                             {/*
                 Generally it's bad to use "index" as a key.
