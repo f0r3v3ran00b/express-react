@@ -11,6 +11,7 @@ const serverless = require('serverless-http');
 var rootRouter = require('./routes/root');
 var usersRouter = require('./routes/users');
 var vicesRouter = require('./routes/vices');
+var apiRouter = require('./routes/api');
 
 
 const app = express();
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 //app.use('/', rootRouter);
 app.use('/users', usersRouter);
 app.use('/vices', vicesRouter);
+app.use('/api', apiRouter);
 
 /*
 app.use(function (req, res, next) {
@@ -44,20 +46,6 @@ app.use(function (err, req, res, next) {
 
 
 // Put all API endpoints under '/api'
-app.get('/api/passwords', (req, res) => {
-    const count = 5;
-
-    // Generate some passwords
-    const passwords = Array.from(Array(count).keys()).map(i =>
-        generatePassword(12, false)
-    )
-
-    // Return them as json
-    res.json(passwords);
-
-    console.log(`Sent ${count} passwords`);
-});
-
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
 app.get('*', (req, res) => {
