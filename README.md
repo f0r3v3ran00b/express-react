@@ -1,4 +1,4 @@
-> Full credit to: https://github.com/mpolinowski/random-pass-gen
+> Full credit to: https://daveceddia.com/deploy-react-express-app-heroku/
 
 # A Simple Javascript example with a client and a server.
 
