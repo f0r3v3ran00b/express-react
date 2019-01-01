@@ -7,12 +7,10 @@ const bodyParser = require('body-parser');
 var logger = require('morgan');
 const serverless = require('serverless-http');
 
-
 var rootRouter = require('./routes/root');
 var usersRouter = require('./routes/users');
 var vicesRouter = require('./routes/vices');
 var apiRouter = require('./routes/api');
-
 
 const app = express();
 
@@ -21,7 +19,7 @@ app.set('view engine', 'pug');
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
-//app.use('/', rootRouter);
+app.use('/misc', rootRouter);
 app.use('/users', usersRouter);
 app.use('/vices', vicesRouter);
 app.use('/api', apiRouter);
@@ -44,12 +42,10 @@ app.use(function (err, req, res, next) {
 });
 */
 
-
-// Put all API endpoints under '/api'
-// The "catchall" handler: for any request that doesn't
-// match one above, send back React's index.html file.
+// Put all API endpoints under '/api' The "catchall" handler: for any request
+// that doesn't match one above, send back React's index.html file.
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+    res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
 
 const port = process.env.PORT || 5000;
