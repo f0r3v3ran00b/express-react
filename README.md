@@ -1,3 +1,5 @@
+> Full credit to: https://github.com/mpolinowski/random-pass-gen
+
 # A Simple Javascript example with a client and a server.
 
 ## To Run
