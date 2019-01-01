@@ -1,12 +1,8 @@
 const express = require('express');
 const path = require('path');
-const generatePassword = require('password-generator');
-var createError = require('http-errors');
-var cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-var logger = require('morgan');
 const serverless = require('serverless-http');
 
+// routes
 var rootRouter = require('./routes/root');
 var usersRouter = require('./routes/users');
 var vicesRouter = require('./routes/vices');
